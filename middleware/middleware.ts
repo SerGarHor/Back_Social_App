@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 const secretKey = process.env.SECRET_KEY || 'defaultSecret';
 
-export class middleware {
+export class Middleware {
 
     static verifyToken(req: any, res: any){
         if (!req.headers.authorization) return res.status(401).json('No autorizado')
