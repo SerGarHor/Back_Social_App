@@ -6,11 +6,11 @@ const secretKey = process.env.SECRET_KEY || 'defaultSecret';
 
 export class Middleware {
 
-    static verifyToken(req: any, res: any){
+    static verifyToken(req: any, res: any) {
         if (!req.headers.authorization) return res.status(401).json('No autorizado')
-        const token = req.headers.authorization.substr(7) 
-        if (token != ''){
-            const content = jwt.verify(token,secretKey)
+        const token = req.headers.authorization.substr(7)
+        if (token != '') {
+            const content = jwt.verify(token, secretKey)
         } else {
             res.status(401).json('Token vacio')
         }
